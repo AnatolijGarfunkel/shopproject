@@ -1,28 +1,22 @@
-package org.telran.shop.de.model;
+package org.telran.shop.de.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
+@Entity
+@Table(name = "discauntcards")
 public class DiscountCard {
 
+    @Id
     private String id;
 
     private boolean expired;
 
-
-    public DiscountCard() {
-        //
-    }
-
-    public DiscountCard(String id) {
-        this.id = id;
-    }
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getId() {
-        return id;
-    }
 
     public boolean isExpired() {
         return expired;

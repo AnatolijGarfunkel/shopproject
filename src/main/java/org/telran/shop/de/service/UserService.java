@@ -1,20 +1,25 @@
 package org.telran.shop.de.service;
 
-import org.telran.shop.de.model.User;
+import org.telran.shop.de.entity.User;
 
 import java.util.List;
 
 public interface UserService {
+    List<User> getAll ();
 
-    public List<User> getAll ();
-
-    User create(User user);
+    User getById(long id);
 
     User getByLogin(String login);
 
-    List<User> filterByFirstName(String firstName);
+    List<User> getByFullAdress(String fullAddress);
 
-    List<User> filterByAge(int age);
+    User create(User user);
 
-    void deleteByLogin(String login);
+    User update(long id, User user);
+
+    User updateAdress(long id, User user);
+
+    User delete(long id);
+
+    List<User> getWithEqualsPassword(String password);
 }

@@ -1,6 +1,21 @@
-package org.telran.shop.de.model;
+package org.telran.shop.de.entity;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@NoArgsConstructor
+@Data
+@Entity
+@Table(name = "shop_users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String login;
 
@@ -8,48 +23,16 @@ public class User {
 
     private String email;
 
-    private UserData data;
+    private String userInfo;
 
-    public User(String login, String password, String email, UserData data) {
-        this.login = login;
-        this.password = password;
-        this.email = email;
-        this.data = data;
-    }
+    private String information;
 
-    public User() {
-        //
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Address> addresses = new ArrayList<>();
 
-    public String getLogin() {
-        return login;
-    }
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "passport_id", referencedColumnName = "id")
+    private Passport passport;
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public UserData getData() {
-        return data;
-    }
-
-    public void setData(UserData data) {
-        this.data = data;
-    }
 }

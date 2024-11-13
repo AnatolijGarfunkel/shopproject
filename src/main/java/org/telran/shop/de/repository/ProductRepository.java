@@ -1,17 +1,11 @@
 package org.telran.shop.de.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.telran.shop.de.enums.ProductType;
-import org.telran.shop.de.model.Product;
+import org.telran.shop.de.entity.Product;
 
 import java.util.List;
 
-public interface ProductRepository {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    List<Product> getAll ();
-
-    Product put(Product product);
-
-    List<Product> getByType(ProductType type);
-
-    void deleteByTitle(String title);
 }

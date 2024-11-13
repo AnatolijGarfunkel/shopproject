@@ -1,19 +1,11 @@
 package org.telran.shop.de.repository;
 
-import org.telran.shop.de.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.telran.shop.de.entity.User;
 
-import java.util.List;
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
-public interface UserRepository {
-    List<User> getAll();
-
-    User create(User user);
-
-    User getByLogin(String login);
-
-    List<User> filterhByFirstName(String firstName);
-
-    List<User> filterByAge(int age);
-
-    void deleteByLogin(String login);
+    User getUserByLogin(String login);
 }

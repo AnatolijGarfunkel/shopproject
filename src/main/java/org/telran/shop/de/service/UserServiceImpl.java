@@ -2,7 +2,7 @@ package org.telran.shop.de.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.telran.shop.de.model.User;
+import org.telran.shop.de.entity.User;
 import org.telran.shop.de.repository.UserRepository;
 
 import java.util.List;
@@ -11,36 +11,57 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository repository;
 
+
+// GET -----------------------------------------------------------------------------------------------------------------
 
     @Override
     public List<User> getAll() {
-        return userRepository.getAll();
+        return repository.findAll();
     }
 
     @Override
-    public User create(User user) {
-        return userRepository.create(user);
+    public User getById(long id) {
+        return repository.findById(id).get();
     }
 
     @Override
     public User getByLogin(String login) {
-        return userRepository.getByLogin(login);
+        return repository.getUserByLogin(login);
     }
 
     @Override
-    public List<User> filterByFirstName(String firstName) {
-        return userRepository.filterhByFirstName(firstName);
+    public List<User> getByFullAdress(String fullAddress) {
+        return List.of();
+    }
+
+// POST ----------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public User create(User user) {
+        return null;
     }
 
     @Override
-    public List<User> filterByAge(int age) {
-        return userRepository.filterByAge(age);
+    public User update(long id, User user) {
+        return null;
     }
 
     @Override
-    public void deleteByLogin(String login) {
-        userRepository.deleteByLogin(login);
+    public User updateAdress(long id, User user) {
+        return null;
+    }
+
+// DELETE --------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public User delete(long id) {
+        return null;
+    }
+
+    @Override
+    public List<User> getWithEqualsPassword(String password) {
+        return List.of();
     }
 }

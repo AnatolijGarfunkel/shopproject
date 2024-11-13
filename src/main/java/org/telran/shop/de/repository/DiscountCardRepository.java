@@ -1,20 +1,12 @@
 package org.telran.shop.de.repository;
 
-import org.telran.shop.de.model.DiscountCard;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.telran.shop.de.entity.DiscountCard;
 
 import java.util.List;
 
-public interface DiscountCardRepository {
+@Repository
+public interface DiscountCardRepository extends JpaRepository<DiscountCard, Long> {
 
-    List<DiscountCard> getAll ();
-
-    DiscountCard create (DiscountCard card);
-
-    DiscountCard getById (String id);
-
-    void deleteById(String id);
-
-    void setExpired(String id);
-
-    List<DiscountCard> filter(boolean expired);
 }

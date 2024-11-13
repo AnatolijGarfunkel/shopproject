@@ -1,44 +1,21 @@
-package org.telran.shop.de.model;
+package org.telran.shop.de.entity;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.telran.shop.de.enums.ProductType;
 
+@NoArgsConstructor
+@Data
+@Entity
+@Table(name = "products")
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String title;
 
     private ProductType type;
-
-
-    public Product(String title, ProductType type) {
-        this.title = title;
-        this.type = type;
-    }
-
-    public Product() {
-        //
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ProductType getType() {
-        return type;
-    }
-
-    public void setType(ProductType type) {
-        this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "title='" + title + '\'' +
-                ", type=" + type +
-                '}';
-    }
 }
