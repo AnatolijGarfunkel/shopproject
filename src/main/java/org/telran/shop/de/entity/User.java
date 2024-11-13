@@ -35,6 +35,4 @@ public class User {
     @JoinColumn(name = "passport_id", referencedColumnName = "id")
     private Passport passport;
 
-    // testBranch
-
 }
