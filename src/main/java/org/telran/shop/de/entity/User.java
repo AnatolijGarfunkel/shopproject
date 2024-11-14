@@ -35,4 +35,10 @@ public class User {
     @JoinColumn(name = "passport_id", referencedColumnName = "id")
     private Passport passport;
 
+    // test coding
+
+    // bitte um rückmeldung
+
+    // weiterer versuch
+
 }
